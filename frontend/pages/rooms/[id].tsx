@@ -15,30 +15,26 @@ const Room: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="my-12">
-        <form action="#" method="POST">
-          <div className="shadow sm:rounded-md sm:overflow-hidden">
-            <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
-              <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  Room {id}
-                </h3>
-              </div>
+      <main className="mt-12">
+        <form action="#" method="POST" className="space-y-4">
+          <div>
+            <h3 className="text-lg leading-6 font-medium text-gray-900">
+              Room {id}
+            </h3>
+          </div>
 
-              <div className="space-y-4">
-                <Message />
-                <Message />
-                <Message />
-              </div>
+          <div className="space-y-4">
+            <Message />
+            <Message />
+            <Message />
+          </div>
 
-              <textarea id="about" name="about" rows="3" className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Enter a message"></textarea>
-            </div>
+          <div className="flex space-x-2">
+            <input type="text" name="message" placeholder="Enter a message" className="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" />
 
-            <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button type="submit" className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Send Message
-              </button>
-            </div>
+            <button type="submit" className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Send
+            </button>
           </div>
         </form>
       </main>

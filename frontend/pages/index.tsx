@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="mt-12">
         <h1 className="text-xl font-semibold">
           Welcome to Nest Chat!
         </h1>

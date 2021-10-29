@@ -1,5 +1,5 @@
 function Message() {
-  return <div className="bg-gray-100 rounded-md text-sm p-4">
+  return <div className="border border-gray-300 rounded-md text-sm p-4">
     <div>
       <strong>John Doe</strong>
     </div>

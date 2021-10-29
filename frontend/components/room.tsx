@@ -6,7 +6,9 @@ function Room() {
       <strong>Room Name</strong>
     </div>
 
-    <Link href="/rooms/test123">Join</Link>
+    <Link href="/rooms/test123">
+      <a className="text-blue-500 font-semibold">Join</a>
+    </Link>
   </div>
 }
 
