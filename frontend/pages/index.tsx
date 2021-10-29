@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Room from '../components/room'
 
 const Home: NextPage = () => {
   return (
@@ -10,10 +11,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-gray-100">
+      <main>
         <h1 className="text-xl font-semibold">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to Nest Chat!
         </h1>
+
+        <div className="mt-8 space-y-4">
+          <Room />
+        </div>
       </main>
     </div>
   )
