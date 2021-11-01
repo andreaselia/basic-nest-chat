@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -7,10 +6,6 @@ import Message from '../../components/message'
 const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
-
-  useEffect(() => {
-    // const ws = new WebSocket('http://localhost')
-  }, [])
 
   return (
     <div className="container">
