@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Room from '../components/room'
+import RoomItem from '../components/RoomItem'
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         </h1>
 
         <div className="mt-8 space-y-4">
-          <Room />
+          <RoomItem />
         </div>
       </main>
     </div>

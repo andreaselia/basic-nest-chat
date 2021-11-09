@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function Room() {
+function RoomItem() {
   return <div className="flex justify-between items-center bg-gray-100 rounded-md text-sm p-4">
     <div>
       <strong>Room Name</strong>
@@ -12,4 +12,4 @@ function Room() {
   </div>
 }
 
-export default Room
+export default RoomItem

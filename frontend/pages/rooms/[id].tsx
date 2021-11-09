@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Message from '../../components/message'
-import Form from '../../components/form'
+import MessageItem from '../../components/MessageItem'
+import MessageForm from '../../components/MessageForm'
 import { useContext, useEffect } from 'react'
 import { SocketContext } from '../../context/socket'
 
@@ -27,22 +27,20 @@ const Room: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mt-12">
-        <form action="#" method="POST" className="space-y-4">
-          <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Room {id}
-            </h3>
-          </div>
+      <main className="mt-12 space-y-4">
+        <div>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Room {id}
+          </h3>
+        </div>
 
-          <div className="space-y-4">
-            <Message />
-            <Message />
-            <Message />
-          </div>
+        <div className="space-y-4">
+          <MessageItem />
+          <MessageItem />
+          <MessageItem />
+        </div>
 
-          <Form />
-        </form>
+        <MessageForm />
       </main>
     </div>
   )

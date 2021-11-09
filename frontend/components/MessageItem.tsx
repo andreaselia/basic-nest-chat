@@ -1,4 +1,4 @@
-function Message() {
+function MessageItem() {
   return <div className="bg-gray-100 rounded-md text-sm p-4">
     <div className="flex justify-between">
       <strong>John Doe</strong>
@@ -12,4 +12,4 @@ function Message() {
   </div>
 }
 
-export default Message
+export default MessageItem
