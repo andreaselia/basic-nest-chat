@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Message from '../../components/message'
+import Form from '../../components/form'
 import { useContext, useEffect } from 'react'
 import { SocketContext } from '../../context/socket'
 
@@ -40,13 +41,7 @@ const Room: NextPage = () => {
             <Message />
           </div>
 
-          <div className="flex space-x-2">
-            <input type="text" name="message" placeholder="Enter a message" className="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" />
-
-            <button type="submit" className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Send
-            </button>
-          </div>
+          <Form />
         </form>
       </main>
     </div>
