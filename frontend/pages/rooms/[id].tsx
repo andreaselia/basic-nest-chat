@@ -2,10 +2,21 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Message from '../../components/message'
+import { useContext, useEffect } from 'react'
+import { SocketContext } from '../../context/socket'
 
 const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
+  const socket = useContext(SocketContext)
+
+  useEffect(() => {
+    socket.emit('foo')
+
+    socket.on('bar', () => console.log('bar'))
+
+    return () => {}
+  }, [socket])
 
   return (
     <div className="container">
