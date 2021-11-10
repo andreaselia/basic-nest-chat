@@ -12,9 +12,7 @@ const Room: NextPage = () => {
   const socket = useContext(SocketContext)
 
   useEffect(() => {
-    socket.emit('foo')
-
-    socket.on('bar', () => console.log('bar'))
+    socket.on('bar', (payload) => console.log('bar', payload))
 
     return () => {
       // leave room

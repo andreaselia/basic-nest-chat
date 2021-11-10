@@ -8,7 +8,7 @@ function MessageForm() {
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
-    socket.send('NEW_MESSAGE', message.current?.value)
+    socket.emit('foo', message.current?.value)
 
     console.log('submitted message', message.current?.value)
   }
