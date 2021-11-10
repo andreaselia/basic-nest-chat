@@ -1,4 +1,5 @@
-function MessageItem() {
+function MessageItem(props) {
+  console.log(props)
   return <div className="bg-gray-100 rounded-md text-sm p-4">
     <div className="flex justify-between">
       <strong>John Doe</strong>
@@ -8,7 +9,7 @@ function MessageItem() {
       </p>
     </div>
 
-    Lorem ipsum dolor
+    {props.message}
   </div>
 }
 

@@ -16,7 +16,9 @@ const Room: NextPage = () => {
     socket.on('bar', (payload) => {
       console.log('bar received', payload)
 
-      setMessages([messages, ...payload])
+      setMessages([payload])
+
+      console.log(messages)
     })
 
     return () => {
@@ -41,7 +43,7 @@ const Room: NextPage = () => {
 
         <div className="space-y-4">
           {messages.map((message: string, index: number) => {
-            return <MessageItem key={index} />
+            return <MessageItem key={index} message={message} />
           })}
         </div>
 
