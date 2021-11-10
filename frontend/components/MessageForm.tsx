@@ -1,10 +1,14 @@
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
+import { SocketContext } from '../context/socket'
 
 function MessageForm() {
+  const socket = useContext(SocketContext)
   const message = useRef<HTMLInputElement>(null)
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
+
+    socket.send('NEW_MESSAGE', message.current?.value)
 
     console.log('submitted message', message.current?.value)
   }

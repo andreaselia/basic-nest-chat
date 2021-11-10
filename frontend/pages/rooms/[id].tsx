@@ -16,7 +16,9 @@ const Room: NextPage = () => {
 
     socket.on('bar', () => console.log('bar'))
 
-    return () => {}
+    return () => {
+      // leave room
+    }
   }, [socket])
 
   return (
