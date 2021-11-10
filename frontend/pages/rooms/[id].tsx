@@ -3,16 +3,21 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import MessageItem from '../../components/MessageItem'
 import MessageForm from '../../components/MessageForm'
-import { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { SocketContext } from '../../context/socket'
 
 const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
   const socket = useContext(SocketContext)
+  let messages:any = []
 
   useEffect(() => {
-    socket.on('bar', (payload) => console.log('bar', payload))
+    socket.on('bar', (payload) => {
+      console.log('bar received', payload)
+
+      messages.push(payload)
+    })
 
     return () => {
       // leave room
@@ -35,9 +40,7 @@ const Room: NextPage = () => {
         </div>
 
         <div className="space-y-4">
-          <MessageItem />
-          <MessageItem />
-          <MessageItem />
+          {messages.map((message: string, index: number) => <MessageItem />)}
         </div>
 
         <MessageForm />
