@@ -3,27 +3,26 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import MessageItem from '../../components/MessageItem'
 import MessageForm from '../../components/MessageForm'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SocketContext } from '../../context/socket'
 
 const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
   const socket = useContext(SocketContext)
-  const [messages, setMessages] = React.useState<any[]>([])
+  const initialMessages: Message[] = [
+    { text: 'Hello' },
+    { text: 'Hey' }
+  ]
+  const [messages, setMessages] = useState(initialMessages)
+  const addMessage: AddMessage = (text: string) => {
+    const newMessage = { text }
+    setMessages([...messages, newMessage])
+  }
+
 
   useEffect(() => {
-    socket.on('bar', (payload) => {
-      console.log('bar received', payload)
-
-      setMessages([payload])
-
-      console.log(messages)
-    })
-
-    return () => {
-      // leave room
-    }
+    socket.on('bar', (payload) => addMessage(payload))
   }, [socket])
 
   return (
@@ -42,8 +41,8 @@ const Room: NextPage = () => {
         </div>
 
         <div className="space-y-4">
-          {messages.map((message: string, index: number) => {
-            return <MessageItem key={index} message={message} />
+          {messages.map((message: Message, index: number) => {
+            return <MessageItem message={message} key={index} />
           })}
         </div>
 

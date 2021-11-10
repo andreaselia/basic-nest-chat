@@ -1,5 +1,6 @@
-function MessageItem(props) {
-  console.log(props)
+import React from 'react'
+
+export const MessageItem: React.FC<Props> = ({ message }) => {
   return <div className="bg-gray-100 rounded-md text-sm p-4">
     <div className="flex justify-between">
       <strong>John Doe</strong>
@@ -9,7 +10,7 @@ function MessageItem(props) {
       </p>
     </div>
 
-    {props.message}
+    {message.text}
   </div>
 }
 
