@@ -10,13 +10,13 @@ const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
   const socket = useContext(SocketContext)
-  let messages:any = []
+  const [messages, setMessages] = React.useState<any[]>([])
 
   useEffect(() => {
     socket.on('bar', (payload) => {
       console.log('bar received', payload)
 
-      messages.push(payload)
+      setMessages([messages, ...payload])
     })
 
     return () => {
@@ -40,7 +40,9 @@ const Room: NextPage = () => {
         </div>
 
         <div className="space-y-4">
-          {messages.map((message: string, index: number) => <MessageItem />)}
+          {messages.map((message: string, index: number) => {
+            return <MessageItem key={index} />
+          })}
         </div>
 
         <MessageForm />
