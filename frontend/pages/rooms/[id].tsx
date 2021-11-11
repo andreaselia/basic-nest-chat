@@ -1,29 +1,14 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import MessageItem from '../../components/MessageItem'
 import MessageForm from '../../components/MessageForm'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { SocketContext } from '../../context/socket'
+import { MessageList } from '../../features/room/messageList'
 
 const Room: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
-  const socket = useContext(SocketContext)
-  const initialMessages: Message[] = [
-    { text: 'Hello' },
-    { text: 'Hey' }
-  ]
-  const [messages, setMessages] = useState(initialMessages)
-  const addMessage: AddMessage = (text: string) => {
-    const newMessage = { text }
-    setMessages([...messages, newMessage])
-  }
-
-
-  useEffect(() => {
-    socket.on('bar', (payload) => addMessage(payload))
-  }, [socket])
 
   return (
     <div className="container">
@@ -40,11 +25,7 @@ const Room: NextPage = () => {
           </h3>
         </div>
 
-        <div className="space-y-4">
-          {messages.map((message: Message, index: number) => {
-            return <MessageItem message={message} key={index} />
-          })}
-        </div>
+        <MessageList />
 
         <MessageForm />
       </main>
