@@ -11,7 +11,7 @@ export function MessageList() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    socket.on('bar', (payload) => dispatch(addMessage(payload)))
+    socket.on('message', (payload) => dispatch(addMessage(payload)))
   }, [socket])
 
   return (
