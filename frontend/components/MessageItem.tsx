@@ -6,7 +6,7 @@ export const MessageItem: React.FC<Props> = ({ message }) => {
       <strong>John Doe</strong>
 
       <p className="mt-1 text-xs font-semibold text-gray-500">
-        19:10
+        {message.date.getHours()}:{message.date.getMinutes()}
       </p>
     </div>
 

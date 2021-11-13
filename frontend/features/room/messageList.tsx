@@ -11,7 +11,12 @@ export function MessageList() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    socket.on('message', (payload) => dispatch(addMessage(payload)))
+    socket.on('message', (payload) => {
+      let message = payload
+      message.date = new Date(message.date)
+
+      dispatch(addMessage(message))
+    })
   }, [socket])
 
   return (

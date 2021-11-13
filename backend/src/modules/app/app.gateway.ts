@@ -8,6 +8,9 @@ export class AppGateway {
 
   @SubscribeMessage('message')
   handleMessage(client: Socket, payload: string): void {
-    this.server.emit('message', payload);
+    this.server.emit('message', {
+      text: payload,
+      date: new Date(),
+    });
   }
 }

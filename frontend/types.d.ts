@@ -1,5 +1,6 @@
 interface Message {
   text: string;
+  date: any;
 }
 
 interface Props {

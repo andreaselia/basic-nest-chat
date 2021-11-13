@@ -12,8 +12,8 @@ export const roomSlice = createSlice({
   name: 'room',
   initialState,
   reducers: {
-    addMessage: (state, action: PayloadAction<string>) => {
-      state.messages.push({ text: action.payload })
+    addMessage: (state, action: PayloadAction<any>) => {
+      state.messages.push(action.payload)
     },
   },
 })
